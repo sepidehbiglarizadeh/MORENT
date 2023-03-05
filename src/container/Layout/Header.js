@@ -4,8 +4,8 @@ import {
   HeartIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
-import FilterIcon from "@/components/icons/FilterIcon";
-import SearchIcon from "@/components/icons/SearchIcon";
+import FilterIcon from "@/common/icons/FilterIcon";
+import SearchIcon from "@/common/icons/SearchIcon";
 
 const Header = () => {
   return (
