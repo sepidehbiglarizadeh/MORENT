@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = ({ children }) => {
@@ -5,6 +6,7 @@ const Layout = ({ children }) => {
     <main className="min-h-screen">
       <Header />
       {children}
+      <Footer/>
     </main>
   );
 };
