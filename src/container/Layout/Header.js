@@ -12,7 +12,7 @@ const Header = () => {
     <header className="bg-white mb-8 py-8 px-6 md:px-[60px] md:py-10">
       {/* Navigation */}
       <nav className=" container mx-auto max-w-[1440px]">
-        <div className="flex justify-between items-center h-full gap-x-5">
+        <div className="flex justify-between items-center h-full gap-x-5 mb-8 md:mb-0">
           <div className="flex items-center flex-1 gap-x-16">
             <h1 className="text-primary-500 font-bold text-2xl md:text-[32px] uppercase">
               morent
@@ -46,8 +46,8 @@ const Header = () => {
           </div>
         </div>
         {/* mobile search section */}
-        <form className="flex items-center gap-x-4 w-full md:hidden pb-8 px-6">
-          <div className=" px-6 flex items-center bg-white rounded-[10px] border flex-1">
+        <form className="flex items-center gap-x-4 w-full md:hidden">
+          <div className=" px-6 flex items-center bg-white rounded-[10px] border w-full">
             <SearchIcon />
             <input
               type="search"
