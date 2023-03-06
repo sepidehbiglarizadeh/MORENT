@@ -1,6 +1,6 @@
-import MyDatePicker from "./MyDatePicker/MyDatePicker";
-import MyLocationPicker from "./MyLocationPicker/MyLocationPicker";
-import MyTimePicker from "./MyTimePicker/MyTimePicker";
+import MyDatePicker from "../MyDatePicker/MyDatePicker";
+import MyLocationPicker from "../MyLocationPicker/MyLocationPicker";
+import MyTimePicker from "../MyTimePicker/MyTimePicker";
 
 const FilterControl = ({ title }) => {
   return (
