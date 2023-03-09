@@ -9,7 +9,7 @@ import SearchIcon from "@/common/icons/SearchIcon";
 
 const Header = () => {
   return (
-    <header className="bg-white mb-8 py-8 px-6 md:px-[60px] md:py-10">
+    <header className="bg-white py-8 px-6 md:px-[60px] md:py-10 sticky top-0 z-30">
       {/* Navigation */}
       <nav className=" container mx-auto max-w-[1440px]">
         <div className="flex justify-between items-center h-full gap-x-5 mb-8 md:mb-0">

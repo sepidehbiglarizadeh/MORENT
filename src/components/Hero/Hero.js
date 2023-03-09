@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="px-6 md:px-[60px] mb-8">
+    <section className="px-6 md:px-[60px] mb-8 mt-8">
       <div className="flex justify-between md:gap-x-8 container mx-auto max-w-[1440px]">
         <div className="w-full h-[232px] md:w-1/2 md:h-[360px] rounded-[10px] relative p-6">
           <div className="absolute z-20">
@@ -14,12 +15,14 @@ const Hero = () => {
               Ease of doing a car rental safely and reliably. Of course at a low
               price.
             </p>
-            <Button
-              variant="contained"
-              className="bg-primary-500 w-32 md:w-[120px] h-11 capitalize hover:bg-primary-600 text-xs md:text-base font-semibold"
-            >
-              Rental Car
-            </Button>
+            <Link href="/cars">
+              <Button
+                variant="contained"
+                className="bg-primary-500 w-32 md:w-[120px] h-11 capitalize hover:bg-primary-600 text-xs md:text-base font-semibold"
+              >
+                Rental Car
+              </Button>
+            </Link>
           </div>
           <Image src="/images/Ads1.png" fill />
         </div>
@@ -33,12 +36,14 @@ const Hero = () => {
               Providing cheap car rental services and safe and comfortable
               facilities.
             </p>
-            <Button
-              variant="contained"
-              className="bg-information-500 w-32 md:w-[120px] h-11 capitalize hover:bg-information-600 text-xs md:text-base font-semibold"
-            >
-              Rental Car
-            </Button>
+            <Link href="/cars">
+              <Button
+                variant="contained"
+                className="bg-information-500 w-32 md:w-[120px] h-11 capitalize hover:bg-information-600 text-xs md:text-base font-semibold"
+              >
+                Rental Car
+              </Button>
+            </Link>
           </div>
           <Image src="/images/Ads2.png" fill />
         </div>
