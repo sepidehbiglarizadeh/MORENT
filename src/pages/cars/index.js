@@ -14,9 +14,9 @@ const CarsPage = ({ carsData, types }) => {
         <div className="w-full mb-11 ">
           <FilterForm />
         </div>
-        <div className="grid grid-cols-6 gap-8">
+        <div className="grid grid-cols-6 gap-8 mb-12 md:mb-16">
           {carsData.docs.map((car) => {
-            return <Card car={car} />;
+            return <Card key={car._id} car={car} />;
           })}
         </div>
       </div>
@@ -26,7 +26,7 @@ const CarsPage = ({ carsData, types }) => {
 
 export default CarsPage;
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req,query }) {
   const { data: carsResult } = await getAllCarsService(req);
   const { data: typesResult } = await getAllTypesService();
 

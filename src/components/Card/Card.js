@@ -26,7 +26,7 @@ const Card = ({ car }) => {
       {/* Card Content */}
       <div className="flex items-center justify-between gap-x-[59px] md:flex-col md:justify-start md:items-start md:gap-x-0 mb-9 md:mb-0">
         <div className="md:mb-9  md:h-[84px] h-[64px]">
-          <Image src={car.coverImage} width={272} height={84} placeholder="blur" blurDataURL={car.coverImage} />
+          <Image src={car.coverImage} alt={car.title} width={272} height={84} placeholder="blur" blurDataURL={car.coverImage} />
         </div>
         <div className="flex flex-col gap-y-4 md:flex-row justify-between md:items-center md:gap-x-1 md:mb-9 md:w-full">
           <div className="flex items-center gap-x-1">
@@ -55,7 +55,7 @@ const Card = ({ car }) => {
         <div>
           {car.discount.$numberDecimal !== "0" && (
             <div className="text-base xl:text-xl font-semibold xl:font-bold">
-              {car.discount.$numberDecimal}{" "}
+              ${car.discount.$numberDecimal}{" "}
               <span
                 className={`${
                   car.discount.$numberDecimal !== "0" ? "" : "hidden"
@@ -79,7 +79,7 @@ const Card = ({ car }) => {
                 : "text-base xl:text-xl font-semibold xl:font-bold"
             }`}
           >
-            {car.price.$numberDecimal}{" "}
+            ${car.price.$numberDecimal}{" "}
             <span
               className={`${
                 car.discount.$numberDecimal !== "0" ? "hidden" : ""

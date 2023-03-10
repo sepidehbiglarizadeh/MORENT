@@ -37,7 +37,7 @@ const MyLocationPicker = () => {
         <em>None</em>
       </MenuItem>
       {options.map((item) => (
-        <MenuItem value={item.value}>{item.label}</MenuItem>
+        <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
       ))}
     </Select>
   );
