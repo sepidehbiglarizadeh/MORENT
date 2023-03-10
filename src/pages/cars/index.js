@@ -3,8 +3,18 @@ import DesktopCategory from "@/components/Category/DesktopCategory";
 import FilterForm from "@/components/FIlterForm/index.js";
 import getAllCarsService from "@/services/getAllCarsService";
 import getAllTypesService from "@/services/getAllTypesService";
+import routerPush from "@/utils/routerPush";
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 const CarsPage = ({ carsData, types }) => {
+  const router = useRouter();
+
+  const clickHandler = () => {
+    router.query.limit = carsData.totalDocs;
+    routerPush(router);
+  };
+
   return (
     <main className="container mx-auto max-w-[1440px] flex">
       <div className="relative">
@@ -19,6 +29,17 @@ const CarsPage = ({ carsData, types }) => {
             return <Card key={car._id} car={car} />;
           })}
         </div>
+        <div className="col-span-6 flex justify-center mb-12 md:mb-16">
+          <Button
+            variant="contained"
+            className={`bg-primary-500 w-[223px] h-9 xl:w-[156px] xl:h-11 capitalize hover:bg-primary-600 text-xs xl:text-base font-semibold ${
+              carsData.limit === carsData.totalDocs ? "hidden" : ""
+            }`}
+            onClick={clickHandler}
+          >
+            show more car
+          </Button>
+        </div>
       </div>
     </main>
   );
@@ -26,8 +47,8 @@ const CarsPage = ({ carsData, types }) => {
 
 export default CarsPage;
 
-export async function getServerSideProps({ req,query }) {
-  const { data: carsResult } = await getAllCarsService(req);
+export async function getServerSideProps({ req, query }) {
+  const { data: carsResult } = await getAllCarsService(req, query);
   const { data: typesResult } = await getAllTypesService();
 
   return {
