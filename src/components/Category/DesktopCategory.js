@@ -9,7 +9,7 @@ const capacity = [
 
 const DesktopCategory = ({types}) => {
   return (
-    <section className="bg-white p-8 xl:min-w-[360px] hidden lg:block">
+    <section className="bg-white p-8 xl:min-w-[360px] h-full hidden lg:block">
       <ul className="mb-12">
         <h2 className="text-xs font-semibold mb-5 text-secondary-300 uppercase">
           Type
