@@ -4,6 +4,7 @@ import Image from "next/image";
 import GasStation from "@/common/icons/GasStation";
 import PointIcon from "@/common/icons/PointIcon";
 import DoubleUser from "@/common/icons/DoubleUser";
+import Link from "next/link";
 
 const Card = ({ car }) => {
   return (
@@ -25,9 +26,19 @@ const Card = ({ car }) => {
 
       {/* Card Content */}
       <div className="flex items-center justify-between gap-x-[59px] md:flex-col md:justify-start md:items-start md:gap-x-0 mb-9 md:mb-0">
-        <div className="md:mb-9  md:h-[84px] h-[64px]">
-          <Image src={car.coverImage} alt={car.title} width={272} height={84} placeholder="blur" blurDataURL={car.coverImage} />
-        </div>
+        <Link
+          href={`/cars/${car.hashId}/${car.slug}`}
+          className="md:mb-9  md:h-[84px] h-[64px]"
+        >
+          <Image
+            src={car.coverImage}
+            alt={car.title}
+            width={272}
+            height={84}
+            placeholder="blur"
+            blurDataURL={car.coverImage}
+          />
+        </Link>
         <div className="flex flex-col gap-y-4 md:flex-row justify-between md:items-center md:gap-x-1 md:mb-9 md:w-full">
           <div className="flex items-center gap-x-1">
             <GasStation />
@@ -96,12 +107,14 @@ const Card = ({ car }) => {
             </span>
           </div>
         </div>
-        <Button
-          variant="contained"
-          className="bg-primary-500 w-[100px] h-9 xl:w-[116px] xl:h-11 capitalize hover:bg-primary-600 text-xs xl:text-base font-semibold"
-        >
-          Rent Now
-        </Button>
+        <Link href={`/cars/${car.hashId}/${car.slug}`}>
+          <Button
+            variant="contained"
+            className="bg-primary-500 w-[100px] h-9 xl:w-[116px] xl:h-11 capitalize hover:bg-primary-600 text-xs xl:text-base font-semibold"
+          >
+            Rent Now
+          </Button>
+        </Link>
       </div>
     </div>
   );
