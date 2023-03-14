@@ -5,8 +5,8 @@ const ImageGallery = ({car}) => {
   const [mainImg,setMainImg]= useState(car.coverImage)
 
   return (
-    <div>
-      <div className={`w-full min-h-[232px] rounded-[10px] p-4 mb-6 relative overflow-hidden ${mainImg === car.coverImage ?"background flex flex-col justify-between":"bg-red-100"}`}>
+    <div className="mb-8 md:mb-0 md:w-1/2">
+      <div className={`w-full min-h-[232px] md:h-[360px] rounded-[10px] p-4 mb-6 relative overflow-hidden ${mainImg === car.coverImage ?"background flex flex-col justify-between":"bg-red-100"}`}>
         <div className={`text-white ${mainImg === car.coverImage ? "block":"hidden"}`}>
           <p className="mb-4 text-base sm:text-[32px] font-semibold leading-6 sm:leading-[48px] max-w-[240px] sm:max-w-[372px]">
             {car.cType.title} car with the best design and acceleration
@@ -16,7 +16,7 @@ const ImageGallery = ({car}) => {
             {car.cType.englishTitle} car
           </p>
         </div>
-        <figure className={` ${mainImg === car.coverImage ? "relative w-[190px] h-[60px] sm:w-[380px] sm:h-[120px] self-center" :""}`}>
+        <figure className={` ${mainImg === car.coverImage ? "relative w-[190px] h-[60px] md:w-[220px] md:h-24 lg:w-[380px] lg:h-[120px] self-center" :""}`}>
           <Image
             src={mainImg}
             fill
