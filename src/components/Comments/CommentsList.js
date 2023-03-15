@@ -16,10 +16,10 @@ const CommentsList = ({ car }) => {
 
       {showAll
         ? car.reviews.map((comment) => {
-            return <Comment comment={comment} />;
+            return <Comment key={comment._id} comment={comment} />;
           })
-        : car.reviews.slice(1).map((comment) => {
-            return <Comment comment={comment} />;
+        : car.reviews.slice(0, 2).map((comment) => {
+            return <Comment key={comment._id} comment={comment} />;
           })}
 
       {car.reviews.length > 2 && (
@@ -30,11 +30,13 @@ const CommentsList = ({ car }) => {
           >
             {showAll ? (
               <>
-                Hide <ChevronUpIcon className="w-[14px] h-[14px] md:w-4 md:h-4" />
+                Hide{" "}
+                <ChevronUpIcon className="w-[14px] h-[14px] md:w-4 md:h-4" />
               </>
             ) : (
               <>
-                Show All <ChevronDownIcon className="w-[14px] h-[14px] md:w-4 md:h-4" />
+                Show All{" "}
+                <ChevronDownIcon className="w-[14px] h-[14px] md:w-4 md:h-4" />
               </>
             )}
           </button>
