@@ -24,7 +24,7 @@ const CarDetailPage = ({ recentCar, car, types }) => {
         </section>
         <CommentsList car={car} />
 
-        <section>
+        <section className="mb-8">
           <div className="flex justify-between items-center mb-5 md:mb-[26px]">
             <h2 className="text-secondary-300 font-semibold text-sm md:text-base">Recent Car</h2>
             <Link href="/cars" className="text-primary-500 text-xs md:text-base font-semibold">View All</Link>

@@ -6,9 +6,13 @@ import PointIcon from "@/common/icons/PointIcon";
 import DoubleUser from "@/common/icons/DoubleUser";
 import Link from "next/link";
 
-const Card = ({ car }) => {
+const Card = ({ car, gridLayout }) => {
   return (
-    <div className="col-span-6 sm:col-span-3 md:col-span-2 bg-white p-6 rounded-lg flex flex-col justify-between md:min-h-[388px]">
+    <div
+      className={` bg-white p-6 rounded-lg flex flex-col justify-between md:min-h-[388px] ${
+        gridLayout ? "col-span-6 sm:col-span-3 md:col-span-2" : "min-w-[240px]"
+      }`}
+    >
       {/* Card header */}
       <div className="flex justify-between items-start mb-3 md:mb-[52px]">
         <div className=" capitalize">
@@ -25,10 +29,14 @@ const Card = ({ car }) => {
       </div>
 
       {/* Card Content */}
-      <div className="flex items-center justify-between gap-x-[59px] md:flex-col md:justify-start md:items-start md:gap-x-0 mb-9 md:mb-0">
+      <div
+        className={`${
+          gridLayout ? "flex items-center justify-between gap-x-[59px]" : "flex flex-col"
+        } md:flex-col md:justify-start md:items-start md:gap-x-0 mb-9 md:mb-0`}
+      >
         <Link
           href={`/cars/${car.hashId}/${car.slug}`}
-          className="md:mb-9  md:h-[84px] h-[64px]"
+          className={`${gridLayout?"md:mb-9":"mb-9 "}`}
         >
           <Image
             src={car.coverImage}
@@ -39,7 +47,11 @@ const Card = ({ car }) => {
             blurDataURL={car.coverImage}
           />
         </Link>
-        <div className="flex flex-col gap-y-4 md:flex-row justify-between md:items-center md:gap-x-1 md:mb-9 md:w-full">
+        <div
+          className={`${
+            gridLayout ? "flex flex-col gap-y-4" : "flex justify-between items-center"
+          } md:flex-row justify-between md:items-center md:gap-x-1 md:mb-9 md:w-full`}
+        >
           <div className="flex items-center gap-x-1">
             <GasStation />
             <span className="text-xs xl:text-sm font-medium text-secondary-300">
