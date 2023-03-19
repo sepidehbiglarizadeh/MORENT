@@ -60,6 +60,9 @@ function BpCheckbox(props) {
       checkedIcon={<BpCheckedIcon />}
       icon={<BpIcon />}
       inputProps={{ 'aria-label': 'Checkbox demo' }}
+      value={props.value}
+      name={props.name}
+      onChange={props.onChange}
       {...props}
     />
   );

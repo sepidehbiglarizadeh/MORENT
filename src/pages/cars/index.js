@@ -6,6 +6,7 @@ import getAllTypesService from "@/services/getAllTypesService";
 import routerPush from "@/utils/routerPush";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const CarsPage = ({ carsData, types }) => {
   const router = useRouter();
