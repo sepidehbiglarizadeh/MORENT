@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/solid";
 import FilterIcon from "@/common/icons/FilterIcon";
 import SearchIcon from "@/common/icons/SearchIcon";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -14,9 +15,11 @@ const Header = () => {
       <nav className=" container mx-auto max-w-[1440px]">
         <div className="flex justify-between items-center h-full gap-x-5 mb-8 md:mb-0">
           <div className="flex items-center flex-1 gap-x-16">
-            <h1 className="text-primary-500 font-bold text-2xl md:text-[32px] uppercase">
-              morent
-            </h1>
+            <Link href="/">
+              <h1 className="text-primary-500 font-bold text-2xl md:text-[32px] uppercase">
+                morent
+              </h1>
+            </Link>
             {/* desktop search section */}
             <form className="hidden md:flex items-center py-[10px] px-5 border rounded-[70px] max-w-[492px] flex-1">
               <SearchIcon />
@@ -40,9 +43,9 @@ const Header = () => {
             <button className="p-[10px] border rounded-full hidden md:block">
               <Cog6ToothIcon className="w-6 h-6 fill-secondary-400" />
             </button>
-            <button className="p-[10px] border rounded-full">
+            <Link href="/signup" className="p-[10px] border rounded-full">
               <UserIcon className="w-6 h-6 fill-secondary-400" />
-            </button>
+            </Link>
           </div>
         </div>
         {/* mobile search section */}
