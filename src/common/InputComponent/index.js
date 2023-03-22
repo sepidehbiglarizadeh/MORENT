@@ -19,7 +19,7 @@ const InputComponent = ({
       </label>
       <input
         placeholder={placeholder}
-        className="text-left border p-2 text-sm rounded border-gray-200 outline-none w-full focus:outline-none focus:ring-2 focus:ring-violet-800 focus:border-transparent"
+        className="text-left border p-2 text-sm rounded border-gray-200 outline-none w-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
         type={type || "text"}
         id={name}
         name={name}
