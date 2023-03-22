@@ -4,13 +4,14 @@ import Head from "next/head";
 import Link from "next/link";
 import * as Yup from "yup";
 import InputComponent from "@/common/InputComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignin } from "@/redux/user/userActions";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const initialValues = {
-  name: "",
   email: "",
-  phoneNumber: "",
   password: "",
-  confrimPassword: "",
 };
 
 const validationSchema = Yup.object({
@@ -20,17 +21,26 @@ const validationSchema = Yup.object({
     .min(8, "Password Must Contain at Least 8 Charachter"),
 });
 
-const onSubmit = () => {
-  console.log("submit");
-};
-
 const SigninForm = () => {
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userSignin);
+  const { user } = userInfo;
+  const router = useRouter();
+
+  const onSubmit = (values) => {
+    dispatch(userSignin(values));
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    if (user) router.push("/");
+  }, [user]);
 
   return (
     <>
@@ -59,7 +69,10 @@ const SigninForm = () => {
           >
             Sign-in
           </button>
-          <Link href="/signup" className="mt-4 py-4 cursor-pointer text-sm text-primary-500">
+          <Link
+            href="/signup"
+            className="mt-4 py-4 cursor-pointer text-sm text-primary-500"
+          >
             Not registred yet?
           </Link>
         </form>

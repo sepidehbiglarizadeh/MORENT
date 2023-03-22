@@ -59,7 +59,7 @@ export const userSignin = (data) => {
     http
       .post("/user/signin", data)
       .then((response) => {
-        toast.success("با موفقیت وارد شدید");
+        toast.success("Logged in Successfully !");
         dispatch(signinUserSuccess(response.data));
         Router.push("/");
       })
@@ -80,7 +80,7 @@ export const userSignup = (data) => {
     http
       .post("/user/signup", data)
       .then((response) => {
-        toast.success("ثبت نام با موفقیت انجام شد");
+        toast.success("Registered Successfully !");
         dispatch(signupUserSuccess(response.data));
         dispatch(signinUserSuccess(response.data));
         Router.push("/");
