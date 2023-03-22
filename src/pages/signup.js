@@ -4,6 +4,10 @@ import Head from "next/head";
 import Link from "next/link";
 import * as Yup from "yup";
 import InputComponent from "@/common/InputComponent";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignup } from "@/redux/user/userActions";
+import { useEffect } from "react";
 
 const initialValues = {
   name: "",
@@ -35,12 +39,28 @@ const onSubmit = () => {
 };
 
 const RegisterForm = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userSignin);
+  const { user, loading } = userInfo;
+
+  console.log(user);
+
+  const onSubmit = (values) => {
+    const { name, email, phoneNumber, password } = values;
+    dispatch(userSignup({ name, email, phoneNumber, password }));
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    if (user) router.push("/");
+  }, [user]);
 
   return (
     <>
@@ -52,7 +72,9 @@ const RegisterForm = () => {
           onSubmit={formik.handleSubmit}
           className="flex flex-col space-y-4"
         >
-          <h1 className="font-bold text-2xl text-primary-500 mb-4">Register Form</h1>
+          <h1 className="font-bold text-2xl text-primary-500 mb-4">
+            Register Form
+          </h1>
           <InputComponent label="Name" name="name" formik={formik} />
           <InputComponent label="Email" name="email" formik={formik} />
           <InputComponent
@@ -79,7 +101,10 @@ const RegisterForm = () => {
           >
             Submit
           </button>
-          <Link href="/signin" className="mt-4 py-4 cursor-pointer text-sm text-primary-500">
+          <Link
+            href="/signin"
+            className="mt-4 py-4 cursor-pointer text-sm text-primary-500"
+          >
             Already Got an Account?
           </Link>
         </form>
