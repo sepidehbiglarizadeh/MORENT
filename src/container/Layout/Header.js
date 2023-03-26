@@ -7,6 +7,7 @@ import {
 import FilterIcon from "@/common/icons/FilterIcon";
 import SearchIcon from "@/common/icons/SearchIcon";
 import Link from "next/link";
+import AccountMenu from "@/components/AccountMenu";
 
 const Header = () => {
   return (
@@ -40,10 +41,8 @@ const Header = () => {
             <button className="p-[10px] border rounded-full hidden md:block">
               <BellIcon className="w-6 h-6 fill-secondary-400" />
             </button>
-            <button className="p-[10px] border rounded-full hidden md:block">
-              <Cog6ToothIcon className="w-6 h-6 fill-secondary-400" />
-            </button>
-            <Link href="/signup" className="p-[10px] border rounded-full">
+            <AccountMenu />
+            <Link href="/signin" className="p-[10px] border rounded-full">
               <UserIcon className="w-6 h-6 fill-secondary-400" />
             </Link>
           </div>

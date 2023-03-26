@@ -44,8 +44,6 @@ const RegisterForm = () => {
   const userInfo = useSelector((state) => state.userSignin);
   const { user, loading } = userInfo;
 
-  console.log(user);
-
   const onSubmit = (values) => {
     const { name, email, phoneNumber, password } = values;
     dispatch(userSignup({ name, email, phoneNumber, password }));
