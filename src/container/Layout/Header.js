@@ -8,8 +8,12 @@ import FilterIcon from "@/common/icons/FilterIcon";
 import SearchIcon from "@/common/icons/SearchIcon";
 import Link from "next/link";
 import AccountMenu from "@/components/AccountMenu";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const userInfo = useSelector((state) => state.userSignin);
+  const { user } = userInfo;
+
   return (
     <header className="bg-white py-8 px-6 md:px-[60px] md:py-10 sticky top-0 z-30">
       {/* Navigation */}
@@ -42,7 +46,10 @@ const Header = () => {
               <BellIcon className="w-6 h-6 fill-secondary-400" />
             </button>
             <AccountMenu />
-            <Link href="/signin" className="p-[10px] border rounded-full">
+            <Link
+              href={`${user ? "/dashboard" : "/signin"}`}
+              className="p-[10px] border rounded-full"
+            >
               <UserIcon className="w-6 h-6 fill-secondary-400" />
             </Link>
           </div>

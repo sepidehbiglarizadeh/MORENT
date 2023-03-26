@@ -14,7 +14,6 @@ export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  console.log(user);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
