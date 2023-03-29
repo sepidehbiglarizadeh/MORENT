@@ -1,12 +1,16 @@
 import getOneCarService from "@/services/getOneCarService";
 import RentalSummary from "@/components/RentalSummary";
+import BillingInfoForm from "@/components/BillingInfo";
 
 const PaymentPage = ({ car }) => {
   console.log(car.discount.$numberDecimal);
 
   return (
-    <div className="px-6 py-8">
+    <div className="px-6 py-8 md:flex md:items-start gap-x-8">
       <RentalSummary car={car} />
+      <>
+        <BillingInfoForm />
+      </>
     </div>
   );
 };
