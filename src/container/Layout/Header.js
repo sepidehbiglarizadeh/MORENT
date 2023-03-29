@@ -39,9 +39,9 @@ const Header = () => {
             </form>
           </div>
           <div className="flex items-center gap-x-5">
-            <button className="p-[10px] border rounded-full hidden md:block">
+            <Link href={user ? "/favourites" : "/signin"} className="p-[10px] border rounded-full hidden md:block">
               <HeartIcon className="w-6 h-6 fill-secondary-400" />
-            </button>
+            </Link>
             <button className="p-[10px] border rounded-full hidden md:block">
               <BellIcon className="w-6 h-6 fill-secondary-400" />
             </button>

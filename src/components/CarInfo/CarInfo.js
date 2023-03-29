@@ -1,15 +1,17 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { Button } from "@mui/material";
 import Link from "next/link";
+import CardInteraactions from "../Card/CardInteractions";
 
 const CarInfo = ({ car }) => {
   return (
     <div className="bg-white p-4 md:p-6 rounded-[10px] md:w-1/2 self-stretch">
       <div className="flex items-center justify-between mb-[6px]">
         <h1 className="text-xl md:text-[32px] font-bold">{car.title}</h1>
-        <button>
+        {/* <button>
           <HeartIcon className="w-6 h-6" />
-        </button>
+        </button> */}
+        <CardInteraactions car={car}/>
       </div>
 
       <div className="mb-4">score</div>
