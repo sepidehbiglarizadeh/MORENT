@@ -8,9 +8,6 @@ const CarInfo = ({ car }) => {
     <div className="bg-white p-4 md:p-6 rounded-[10px] md:w-1/2 self-stretch">
       <div className="flex items-center justify-between mb-[6px]">
         <h1 className="text-xl md:text-[32px] font-bold">{car.title}</h1>
-        {/* <button>
-          <HeartIcon className="w-6 h-6" />
-        </button> */}
         <CardInteraactions car={car}/>
       </div>
 
