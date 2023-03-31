@@ -7,7 +7,18 @@ const PaymentMethodForm = () => {
   const [selectedPayment, setSelectedPayment] = useState("");
 
   return (
-    <form className="bg-white p-4 rounded-[10px] md:order-1 mb-8">
+    <form className="bg-white p-4 md:p-6 rounded-[10px] md:order-1 mb-8">
+      <div className="flex justify-between items-start md:items-center mb-8">
+        <div>
+          <h2 className="font-bold md:text-xl mb-1">Payment Method</h2>
+          <p className="text-xs md:text-sm font-medium text-secondary-300">
+            Please enter your payment method
+          </p>
+        </div>
+        <span className="text-xs md:text-sm font-medium text-secondary-300">
+          Step 3 of 4
+        </span>
+      </div>
       <PaymentMethod
         icon={<VisaIcon />}
         label="Credit Card"
@@ -49,7 +60,7 @@ const PaymentMethod = ({
 
   return (
     <section className="bg-gray-100 p-6 rounded-[10px] mb-6">
-      <div className="flex items-center justify-between mb-8">
+      <div className={`flex items-center justify-between ${selectedPayment === value ? "mb-8":""}`}>
         <div className="flex items-center">
           <input
             type="radio"

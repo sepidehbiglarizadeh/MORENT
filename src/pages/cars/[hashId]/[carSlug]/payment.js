@@ -4,6 +4,7 @@ import BillingInfoForm from "@/components/BillingInfo";
 import getCitiesService from "@/services/getlCitiesService";
 import RentalInfoForm from "@/components/RentalInfo";
 import PaymentMethodForm from "@/components/PaymentMethod";
+import Confirmation from "@/components/Confirmation";
 
 const PaymentPage = ({ car, cities }) => {
   return (
@@ -13,6 +14,7 @@ const PaymentPage = ({ car, cities }) => {
         <BillingInfoForm />
         <RentalInfoForm cities={cities} />
         <PaymentMethodForm />
+        <Confirmation />
       </div>
     </div>
   );
