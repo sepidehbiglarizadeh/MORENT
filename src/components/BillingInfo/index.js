@@ -1,6 +1,6 @@
 const BillingInfoForm = () => {
   return (
-    <form className="bg-white p-4 rounded-[10px] md:order-1 md:flex-1">
+    <form className="bg-white p-4 rounded-[10px] md:order-1 md:flex-1 mb-8">
       <div className="flex justify-between items-start md:items-center">
         <div>
           <h2 className="font-bold md:text-xl mb-1">Billing Info</h2>

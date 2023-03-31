@@ -3,8 +3,6 @@ import getAllCarsService from "@/services/getAllCarsService";
 import { useSelector } from "react-redux";
 
 const FavouritesPage = ({ favCars }) => {
-  const userInfo = useSelector((state) => state.userSignin);
-
   return (
     <section className="container mx-auto max-w-[1440px] flex p-4 md:p-6">
       {favCars.length ? (

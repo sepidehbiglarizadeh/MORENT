@@ -26,3 +26,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+input[type="time"]:before {
+  content: 'Select your time';
+  color: #9d9d9d;
+  position: absolute;
+  background: #f3f4f6;
+  font-size: 12px;
+}
+
+input[type="time"]:hover:before {
+  content: '';
+}
