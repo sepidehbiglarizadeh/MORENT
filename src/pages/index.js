@@ -6,7 +6,7 @@ import http from "@/services/httpService";
 import Card from "@/components/Card/Card";
 import Link from "next/link";
 
-export default function Home({ popularCars }) {
+export default function Home({ popularCars, recomendationCar }) {
   return (
     <>
       <Head>
@@ -38,7 +38,27 @@ export default function Home({ popularCars }) {
           </div>
           <div className="flex gap-x-8 overflow-auto">
             {popularCars.map((car) => {
-              return <Card car={car} />;
+              return <Card key={car._id} car={car} />;
+            })}
+          </div>
+        </section>
+
+        {/* recomendationCar section */}
+        <section className="px-4 md:px-[60px]  mb-9">
+          <div className="flex justify-between items-center mb-5 md:mb-[26px]">
+            <h2 className="text-secondary-300 font-semibold text-sm md:text-base">
+              Recomendation Car
+            </h2>
+            <Link
+              href="/cars?sort=newest"
+              className="text-primary-500 text-xs md:text-base font-semibold"
+            >
+              View All
+            </Link>
+          </div>
+          <div className="grid grid-cols-8 gap-8 mb-12 md:mb-16">
+            {recomendationCar.map((car) => {
+              return <Card car={car} gridCols />;
             })}
           </div>
         </section>
@@ -49,9 +69,11 @@ export default function Home({ popularCars }) {
 
 export async function getServerSideProps({ req }) {
   const { data } = await http.get("/cars?sort=popular&limit=4");
+  const { data: recomendationCar } = await http.get("/cars?sort=newest&limit=8");
   return {
     props: {
       popularCars: data.data.docs,
+      recomendationCar: recomendationCar.data.docs,
     },
   };
 }
