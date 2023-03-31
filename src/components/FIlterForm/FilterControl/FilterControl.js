@@ -27,7 +27,7 @@ const FilterControl = ({ title }) => {
           <MyDatePicker />
         </div>
         {/* TimePicker */}
-        <div>
+        <div className="justify-self-start">
           <label className="block text-base font-bold mb-2">Time</label>
           <MyTimePicker />
         </div>
