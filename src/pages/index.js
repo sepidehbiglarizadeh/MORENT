@@ -7,6 +7,7 @@ import Card from "@/components/Card/Card";
 import Link from "next/link";
 
 export default function Home({ popularCars, recomendationCar }) {
+  console.log(popularCars);
   return (
     <>
       <Head>
@@ -68,8 +69,21 @@ export default function Home({ popularCars, recomendationCar }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const { data } = await http.get("/cars?sort=popular&limit=4");
-  const { data: recomendationCar } = await http.get("/cars?sort=newest&limit=8");
+  const { data } = await http.get("/cars?sort=popular&limit=4", {
+    headers: {
+      Cookie: req.headers.cookie || "",
+    },
+  });
+  const { data: recomendationCar } = await http.get(
+    "/cars?sort=newest&limit=8",
+    {
+      headers: {
+        Cookie: req.headers.cookie || "",
+      },
+    }
+  );
+
+  console.log(data.data.docs);
   return {
     props: {
       popularCars: data.data.docs,

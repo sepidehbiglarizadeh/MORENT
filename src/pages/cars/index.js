@@ -11,6 +11,8 @@ import { useState } from "react";
 const CarsPage = ({ carsData, types }) => {
   const router = useRouter();
 
+  console.log(carsData);
+
   const clickHandler = () => {
     router.query.limit = carsData.totalDocs;
     routerPush(router);
