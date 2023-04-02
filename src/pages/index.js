@@ -7,7 +7,6 @@ import Card from "@/components/Card/Card";
 import Link from "next/link";
 
 export default function Home({ popularCars, recomendationCar }) {
-  console.log(popularCars);
   return (
     <>
       <Head>
@@ -59,7 +58,7 @@ export default function Home({ popularCars, recomendationCar }) {
           </div>
           <div className="grid grid-cols-8 gap-8 mb-12 md:mb-16">
             {recomendationCar.map((car) => {
-              return <Card car={car} gridCols />;
+              return <Card key={car._id} car={car} gridCols />;
             })}
           </div>
         </section>
@@ -83,7 +82,6 @@ export async function getServerSideProps({ req }) {
     }
   );
 
-  console.log(data.data.docs);
   return {
     props: {
       popularCars: data.data.docs,
