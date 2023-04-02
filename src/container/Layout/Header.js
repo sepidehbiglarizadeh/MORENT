@@ -139,7 +139,7 @@ export default Header;
 const SearchBox = ({ cars, searchValue, setSearchValue }) => {
   return (
     <div
-      className={`bg-white absolute right-0 left-0 p-3 rounded-b-[10px] shadow-sm border-b border-x ${
+      className={`bg-white absolute right-0 left-0 p-3 rounded-b-[10px] shadow-sm border-b border-x max-h-96 overflow-auto ${
         searchValue ? "block" : "hidden"
       }`}
     >
