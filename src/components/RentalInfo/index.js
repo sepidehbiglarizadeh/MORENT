@@ -1,6 +1,6 @@
 import CustomDatePicker from "../CustomDatePicker";
 
-const RentalInfoForm = ({ cities }) => {
+const RentalInfoForm = ({ car }) => {
   return (
     <form className="bg-white p-4 md:p-6 rounded-[10px] md:order-1 mb-8">
       <div className="flex justify-between items-start md:items-center mb-8">
@@ -29,8 +29,8 @@ const RentalInfoForm = ({ cities }) => {
             <option className="text-xs font-medium" value="" selected disabled>
               Select your city
             </option>
-            {cities.map((city) => {
-              return <option value={city.englishTitle}>{city.title}</option>;
+            {car.availabelCities.map((city) => {
+              return <option value={city.title}>{city.title}</option>;
             })}
           </select>
         </div>
@@ -63,8 +63,8 @@ const RentalInfoForm = ({ cities }) => {
             <option className="text-xs font-medium" value="" selected disabled>
               Select your city
             </option>
-            {cities.map((city) => {
-              return <option value={city.englishTitle}>{city.title}</option>;
+            {car.returnCities.map((city) => {
+              return <option value={city.title}>{city.title}</option>;
             })}
           </select>
         </div>

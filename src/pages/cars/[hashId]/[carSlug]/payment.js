@@ -12,7 +12,7 @@ const PaymentPage = ({ car, cities }) => {
       <RentalSummary car={car} />
       <div className="md:flex-1">
         <BillingInfoForm />
-        <RentalInfoForm cities={cities} />
+        <RentalInfoForm car={car} />
         <PaymentMethodForm />
         <Confirmation />
       </div>
@@ -23,13 +23,11 @@ const PaymentPage = ({ car, cities }) => {
 export default PaymentPage;
 
 export async function getServerSideProps({ req, query }) {
-  const { data: citiesData } = await getCitiesService(req);
   const { data } = await getOneCarService(req, query);
 
   return {
     props: {
       car: data.data,
-      cities: citiesData.data,
     },
   };
 }
