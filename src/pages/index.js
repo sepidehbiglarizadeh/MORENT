@@ -5,8 +5,11 @@ import getAllCarsService from "@/services/getAllCarsService";
 import http from "@/services/httpService";
 import Card from "@/components/Card/Card";
 import Link from "next/link";
+import getCitiesService from "@/services/getlCitiesService";
 
-export default function Home({ popularCars, recomendationCar }) {
+export default function Home({ popularCars, recomendationCar, cities }) {
+  console.log(cities);
+
   return (
     <>
       <Head>
@@ -20,7 +23,7 @@ export default function Home({ popularCars, recomendationCar }) {
 
         {/* Filter Section */}
         <section className="px-4 md:px-[60px]  mb-9">
-          <FilterForm />
+          <FilterForm cities={cities} />
         </section>
 
         {/* popular cars section */}
@@ -73,6 +76,7 @@ export async function getServerSideProps({ req }) {
       Cookie: req.headers.cookie || "",
     },
   });
+
   const { data: recomendationCar } = await http.get(
     "/cars?sort=newest&limit=8",
     {
@@ -82,10 +86,12 @@ export async function getServerSideProps({ req }) {
     }
   );
 
+  const { data: citiesData } = await getCitiesService(req);
   return {
     props: {
       popularCars: data.data.docs,
       recomendationCar: recomendationCar.data.docs,
+      cities: citiesData.data,
     },
   };
 }

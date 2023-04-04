@@ -1,26 +1,13 @@
 import { MenuItem, Select } from "@mui/material";
 
-const options = [
-  { value: "berlin", label: "Berlin" },
-  { value: "frankfurt", label: "Frankfurt" },
-  { value: "munich", label: "Munich" },
-  { value: "Leipzig", label: "Leipzig" },
-  { value: "cologne", label: "Cologne" },
-  { value: "dusseldorf", label: "Dusseldorf" },
-  { value: "humburg", label: "Humburg" },
-  { value: "stuttgart", label: "Stuttgart" },
-  { value: "dresden", label: "Dresden" },
-  { value: "nuremburg", label: "Nuremburg" },
-  { value: "bremen", label: "Bremen" },
-  { value: "bonn", label: "Bonn" },
-];
-
-const MyLocationPicker = () => {
+const MyLocationPicker = ({
+  cities,
+  location,
+  setLocation,
+}) => {
   return (
     <Select
-      labelId="demo-simple-select-label"
-      id="demo-simple-select"
-      value=""
+      value={location}
       sx={{
         "& .MuiOutlinedInput-root": {
           padding: 0,
@@ -32,12 +19,18 @@ const MyLocationPicker = () => {
           color: "#90A3BF",
         },
       }}
+      inputProps={{ "aria-label": "Without label" }}
+      displayEmpty
+      className="w-full"
+      onChange={(e) => setLocation(e.target.value)}
     >
       <MenuItem value="">
-        <em>None</em>
+        <em>Select your city</em>
       </MenuItem>
-      {options.map((item) => (
-        <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
+      {cities.map((item) => (
+        <MenuItem key={item._id} value={item.englishTitle}>
+          {item.title}
+        </MenuItem>
       ))}
     </Select>
   );
