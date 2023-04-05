@@ -16,11 +16,11 @@ export default function Home({ popularCars, recomendationCar, cities }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="container mx-auto max-w-[1440px]">
         <Hero />
 
         {/* Filter Section */}
-        <section className="px-4 md:px-[60px]  mb-9">
+        <section className="px-4 md:px-[60px]  mb-9 ">
           <FilterForm cities={cities} />
         </section>
 

@@ -14,7 +14,6 @@ export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -47,10 +46,12 @@ export default function AccountMenu() {
         {user ? (
           <div>
             <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <Avatar sx={{ width: 25, height: 25, mr: 1 }} />
-              </ListItemIcon>
-              Profile
+              <Link href="/dashboard">
+                <ListItemIcon>
+                  <Avatar sx={{ width: 25, height: 25, mr: 1 }} />
+                </ListItemIcon>
+                Profile
+              </Link>
             </MenuItem>
             <Divider />
             <MenuItem onClick={LogoutUser}>
