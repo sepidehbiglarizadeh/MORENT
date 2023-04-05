@@ -17,12 +17,13 @@ const DesktopCategory = ({ types }) => {
   const [filters, setFilters] = useState({
     typeId: [],
     capacity: [],
-    price: "",
+    price: 0,
   });
 
   useEffect(() => {
-    router.query.typeId=filters.typeId
+    router.query.typeId = filters.typeId;
     router.query.capacity = filters.capacity;
+    router.query.price = filters.price;
     routerPush(router);
   }, [filters]);
 
@@ -95,8 +96,7 @@ const DesktopCategory = ({ types }) => {
         </h2>
         <Slider
           aria-label="Temperature"
-          min={10.0}
-          max={100.0}
+          max={200}
           sx={{
             color: "#90A3BF", // Change the color of the thumb and track to blue
             height: 12,
@@ -111,8 +111,9 @@ const DesktopCategory = ({ types }) => {
           }}
           name="price"
           onChange={changeHandler}
+          value={filters.price}
         />
-        <span className="text-xl font-semibold text-secondary-400"></span>
+        <span className="text-xl font-semibold text-secondary-400">Max ${filters.price}.00</span>
       </div>
     </section>
   );

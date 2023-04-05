@@ -27,9 +27,14 @@ const CarsPage = ({ carsData, types, cities }) => {
           <FilterForm cities={cities} />
         </div>
         <div className="grid grid-cols-6 gap-8 mb-12 md:mb-16">
-          {carsData.docs.map((car) => {
-            return <Card key={car._id} car={car} gridLayout={true} />;
-          })}
+          {carsData.docs.length ? (
+            carsData.docs.map((car) => {
+              return <Card key={car._id} car={car} gridLayout={true} />;
+            })
+          ) : (
+            <p className="col-span-6 text-center font-bold">No Car Found !!</p>
+          )}
+          {}
         </div>
         <div className="col-span-6 flex justify-center mb-12 md:mb-16">
           <Button
