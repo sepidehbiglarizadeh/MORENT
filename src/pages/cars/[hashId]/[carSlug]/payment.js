@@ -1,7 +1,6 @@
 import getOneCarService from "@/services/getOneCarService";
 import RentalSummary from "@/components/RentalSummary";
 import BillingInfoForm from "@/components/BillingInfo";
-import getCitiesService from "@/services/getlCitiesService";
 import RentalInfoForm from "@/components/RentalInfo";
 import PaymentMethodForm from "@/components/PaymentMethod";
 import Confirmation from "@/components/Confirmation";

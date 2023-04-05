@@ -1,6 +1,5 @@
 import Card from "@/components/Card/Card";
 import getAllCarsService from "@/services/getAllCarsService";
-import { useSelector } from "react-redux";
 
 const FavouritesPage = ({ favCars }) => {
   return (

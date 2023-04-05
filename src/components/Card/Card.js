@@ -6,12 +6,14 @@ import DoubleUser from "@/common/icons/DoubleUser";
 import Link from "next/link";
 import CardInteraactions from "./CardInteractions";
 
-const Card = ({ car, gridLayout,gridCols}) => {
+const Card = ({ car, gridLayout, gridCols }) => {
   return (
     <div
       className={` bg-white p-6 rounded-lg flex flex-col justify-between md:min-h-[388px] ${
         gridLayout ? `col-span-6 sm:col-span-3 md:col-span-2` : "min-w-[240px]"
-      } ${gridCols?"col-span-8 sm:col-span-4 xl:col-span-2":"min-w-[240px]"}`}
+      } ${
+        gridCols ? "col-span-8 sm:col-span-4 xl:col-span-2" : "min-w-[240px]"
+      }`}
     >
       {/* Card header */}
       <div className="flex justify-between items-start mb-3 md:mb-[52px]">
@@ -34,18 +36,17 @@ const Card = ({ car, gridLayout,gridCols}) => {
             : "flex flex-col"
         } md:flex-col md:justify-start md:items-start md:gap-x-0 mb-9 md:mb-0`}
       >
-        <Link
-          href={`/cars/${car.hashId}/${car.slug}`}
-          className={`${gridLayout ? "md:mb-9" : "mb-9 "}`}
-        >
-          <Image
-            src={car.coverImage}
-            alt={car.title}
-            width={272}
-            height={84}
-            placeholder="blur"
-            blurDataURL={car.coverImage}
-          />
+        <Link href={`/cars/${car.hashId}/${car.slug}`} passHref>
+          <div className={`${gridLayout ? "md:mb-9" : "mb-9 "}`}>
+            <Image
+              src={car.coverImage}
+              alt={car.title}
+              width={272}
+              height={84}
+              placeholder="blur"
+              blurDataURL={car.coverImage}
+            />
+          </div>
         </Link>
         <div
           className={`${

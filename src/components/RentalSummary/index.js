@@ -12,7 +12,7 @@ const RentalSummary = ({ car }) => {
       </p>
       <div className="flex items-center gap-x-4 pb-6 mb-4 border-b">
         <div className="background relative w-[116px] md:w-[132px] py-6 md:py-9 px-2 rounded-lg">
-          <Image src={car.coverImage} width={116} height={36} />
+          <Image src={car.coverImage} width={116} height={36} alt={car.title} />
         </div>
         <div className="">
           <h2 className="text-xl xl:text-[32px] font-bold mb-3">{car.title}</h2>

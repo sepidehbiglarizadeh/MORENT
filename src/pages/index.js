@@ -8,8 +8,6 @@ import Link from "next/link";
 import getCitiesService from "@/services/getlCitiesService";
 
 export default function Home({ popularCars, recomendationCar, cities }) {
-  console.log(cities);
-
   return (
     <>
       <Head>

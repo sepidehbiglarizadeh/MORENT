@@ -24,7 +24,7 @@ const Hero = () => {
               </Button>
             </Link>
           </div>
-          <Image src="/images/Ads1.png" alt="car" fill />
+          <Image src="/images/Ads1.png" alt="car" fill/>
         </div>
 
         <div className="hidden md:block w-1/2 h-12 md:h-[360px] rounded-[10px] relative p-6 ">

@@ -1,6 +1,10 @@
+import { useState } from "react";
 import CustomDatePicker from "../CustomDatePicker";
 
 const RentalInfoForm = ({ car }) => {
+  const [selectedPickCity, setSelectedPickCity] = useState("");
+  const [selectedDropCity, setSelectedDropCity] = useState("");
+
   return (
     <form className="bg-white p-4 md:p-6 rounded-[10px] md:order-1 mb-8">
       <div className="flex justify-between items-start md:items-center mb-8">
@@ -25,12 +29,16 @@ const RentalInfoForm = ({ car }) => {
       <div className="grid grid-cols-2 md:gap-x-8 mb-6 md:mb-8">
         <div className="col-span-2 md:col-span-1">
           <label className="block mb-3 font-semibold">Locations</label>
-          <select className="bg-gray-100 h-14 rounded-lg w-full px-6 mb-5 outline-none text-xs text-secondary-300 border-r-[24px] border-r-transparent">
-            <option className="text-xs font-medium" value="" selected disabled>
+          <select
+            value={selectedPickCity}
+            onChange={(e) => setSelectedPickCity.target.value}
+            className="bg-gray-100 h-14 rounded-lg w-full px-6 mb-5 outline-none text-xs text-secondary-300 border-r-[24px] border-r-transparent"
+          >
+            <option className="text-xs font-medium" value="" disabled>
               Select your city
             </option>
             {car.availabelCities.map((city) => {
-              return <option value={city.title}>{city.title}</option>;
+              return <option key={city._id} value={city.title}>{city.title}</option>;
             })}
           </select>
         </div>
@@ -44,7 +52,6 @@ const RentalInfoForm = ({ car }) => {
             type="time"
             className=" bg-gray-100 h-14 rounded-lg w-full px-6 mb-5 placeholder:text-xs placeholder:font-medium outline-none text-sm md:text-base"
             placeholder="select your Time"
-            value=""
           />
         </div>
       </div>
@@ -59,12 +66,12 @@ const RentalInfoForm = ({ car }) => {
       <div className="grid grid-cols-2 md:gap-x-8">
         <div className="col-span-2 md:col-span-1">
           <label className="block mb-3 font-semibold">Locations</label>
-          <select className="bg-gray-100 h-14 rounded-lg w-full px-6 mb-5 outline-none text-xs text-secondary-300 border-r-[24px] border-r-transparent">
-            <option className="text-xs font-medium" value="" selected disabled>
+          <select value={selectedDropCity} onChange={(e)=>setSelectedDropCity(e.target.value)} className="bg-gray-100 h-14 rounded-lg w-full px-6 mb-5 outline-none text-xs text-secondary-300 border-r-[24px] border-r-transparent">
+            <option className="text-xs font-medium" value="" disabled>
               Select your city
             </option>
             {car.returnCities.map((city) => {
-              return <option value={city.title}>{city.title}</option>;
+              return <option key={city._id} value={city.title}>{city.title}</option>;
             })}
           </select>
         </div>

@@ -12,18 +12,16 @@ import { useState } from "react";
 const CarsPage = ({ carsData, types, cities }) => {
   const router = useRouter();
 
-  console.log(carsData.limit);
-
   const [limit, setLimit] = useState(carsData.limit);
 
   const clickHandler = () => {
     if (limit === carsData.totalDocs) {
       setLimit(6);
-      router.query.limit= 6;
+      router.query.limit = 6;
       routerPush(router);
     } else {
       setLimit(carsData.totalDocs);
-      router.query.limit= carsData.totalDocs;
+      router.query.limit = carsData.totalDocs;
       routerPush(router);
     }
   };
@@ -53,7 +51,7 @@ const CarsPage = ({ carsData, types, cities }) => {
             className={`bg-primary-500 w-[223px] h-9 xl:w-[156px] xl:h-11 capitalize hover:bg-primary-600 text-xs xl:text-base font-semibold `}
             onClick={clickHandler}
           >
-            {limit !== carsData.totalDocs ? "Show more car" :"Show less car"}
+            {limit !== carsData.totalDocs ? "Show more car" : "Show less car"}
           </Button>
         </div>
       </div>
