@@ -4,6 +4,7 @@ import { Slider } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import queryString from "query-string";
+import Link from "next/link";
 
 const capacity = [
   { id: 1, title: "2 Person", value: "2" },
@@ -17,13 +18,17 @@ const DesktopCategory = ({ types }) => {
   const [filters, setFilters] = useState({
     typeId: [],
     capacity: [],
-    price: 0,
+    price: null,
   });
 
   useEffect(() => {
     router.query.typeId = filters.typeId;
     router.query.capacity = filters.capacity;
-    router.query.price = filters.price;
+    if (filters.price != null) {
+      router.query.price = filters.price;
+    } else {
+      delete router.query.price; // Remove the "price" property from router.query
+    }
     routerPush(router);
   }, [filters]);
 
@@ -43,6 +48,9 @@ const DesktopCategory = ({ types }) => {
 
   return (
     <section className="bg-white p-8 xl:min-w-[360px] h-full hidden lg:block">
+      <Link href="/cars" className="text-primary-500 flex justify-end">
+          Remove All
+      </Link>
       <ul className="mb-12">
         <h2 className="text-xs font-semibold mb-5 text-secondary-300 uppercase">
           Type
@@ -96,7 +104,9 @@ const DesktopCategory = ({ types }) => {
         </h2>
         <Slider
           aria-label="Temperature"
+          min={0}
           max={200}
+          step={10}
           sx={{
             color: "#90A3BF", // Change the color of the thumb and track to blue
             height: 12,
@@ -115,6 +125,7 @@ const DesktopCategory = ({ types }) => {
         />
         <span className="text-xl font-semibold text-secondary-400">Max ${filters.price}.00</span>
       </div>
+      
     </section>
   );
 };

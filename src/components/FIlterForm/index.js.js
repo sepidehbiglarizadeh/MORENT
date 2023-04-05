@@ -20,10 +20,10 @@ const FilterForm = ({ cities }) => {
         location={pickuplocation}
         setLocation={setPickupLocation}
       />
-      <Link href={`/cars?p=${pickuplocation}&d=${dropoffLocation}`} >
+      <Link href={`/cars?p=${pickuplocation}&d=${dropoffLocation}`} className="absolute top-[122px] md:static">
         <Button
           variant="contained"
-          className="bg-primary-500 w-[60px] h-[60px] hover:bg-primary-60 rounded-[10px] absolute top-[122px] md:static "
+          className="bg-primary-500 w-[60px] h-[60px] hover:bg-primary-60 rounded-[10px]  "
         >
           <DoubleArrow />
         </Button>

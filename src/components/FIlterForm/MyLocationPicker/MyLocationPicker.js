@@ -25,7 +25,7 @@ const MyLocationPicker = ({
       onChange={(e) => setLocation(e.target.value)}
     >
       <MenuItem value="">
-        <em>Select your city</em>
+        <em>Your city</em>
       </MenuItem>
       {cities.map((item) => (
         <MenuItem key={item._id} value={item.englishTitle}>
