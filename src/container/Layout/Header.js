@@ -143,22 +143,31 @@ const SearchBox = ({ cars, searchValue, setSearchValue }) => {
         searchValue ? "block" : "hidden"
       }`}
     >
-      {cars.map((car) => {
-        return (
-          <div className="border-b p-1" key={car._id}>
-            <Link
-              href={`/cars/${car.hashId}/${car.slug}`}
-              onClick={() => setSearchValue("")}
-              className="flex items-center justify-between w-full"
-            >
-              <span className="text-sm md:text-base">{car.title}</span>
-              <div className="background relative w-14 h-14 flex justify-center items-center rounded">
-                <Image src={car.coverImage} width={50} height={50} alt={car.title} />
-              </div>
-            </Link>
-          </div>
-        );
-      })}
+      {cars.length ? (
+        cars.map((car) => {
+          return (
+            <div className="border-b p-1" key={car._id}>
+              <Link
+                href={`/cars/${car.hashId}/${car.slug}`}
+                onClick={() => setSearchValue("")}
+                className="flex items-center justify-between w-full"
+              >
+                <span className="text-sm md:text-base">{car.title}</span>
+                <div className="background relative w-14 h-14 flex justify-center items-center rounded">
+                  <Image
+                    src={car.coverImage}
+                    width={50}
+                    height={50}
+                    alt={car.title}
+                  />
+                </div>
+              </Link>
+            </div>
+          );
+        })
+      ) : (
+        <p className="text-sm">No car found !!</p>
+      )}
     </div>
   );
 };
