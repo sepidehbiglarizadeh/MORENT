@@ -5,10 +5,9 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const order = () => {
-  const { user } = useSelector((state) => state.userSignin);
+const Order = () => {
   const dispatch = useDispatch();
 
   return (

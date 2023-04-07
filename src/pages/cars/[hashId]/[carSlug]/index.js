@@ -36,7 +36,7 @@ const CarDetailPage = ({ recentCar, car }) => {
             </div>
             <div className="flex gap-x-8 overflow-auto ">
               {recentCar.map((car) => {
-                return <Card car={car} />;
+                return <Card key={car._id} car={car} />;
               })}
             </div>
           </section>
